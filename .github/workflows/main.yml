@@ -17,10 +17,12 @@ jobs:
 
       - name: Configure and Build
         run: |
-          mkdir build
-          cd build
-          cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_C_FLAGS=-m32 -DCMAKE_CXX_FLAGS=-m32
-          make
+                git clone https://github.com/yapb/crlib ext/crlib
+                
+                mkdir build
+                cd build
+                cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_C_FLAGS=-m32 -DCMAKE_CXX_FLAGS=-m32
+                make
 
       - name: Upload Linux Artifact
         uses: actions/upload-artifact@v4
